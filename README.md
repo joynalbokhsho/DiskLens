@@ -39,8 +39,8 @@ A lightweight, open-source Windows desktop app to visualize what's eating up you
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/disklens.git
-cd disklens
+git clone https://github.com/joynalbokhsho/DiskLens.git
+cd DiskLens
 
 # 2. Run the app
 py disklens.py
@@ -92,8 +92,8 @@ disklens/
 
 Contributions are welcome! Feel free to:
 
-- 🐛 [Report a bug](../../issues/new)
-- 💡 [Request a feature](../../issues/new)
+- 🐛 [Report a bug](https://github.com/joynalbokhsho/DiskLens/issues/new)
+- 💡 [Request a feature](https://github.com/joynalbokhsho/DiskLens/issues/new)
 - 🔧 Submit a pull request
 
 Please open an issue first to discuss any major changes.
