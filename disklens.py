@@ -1,5 +1,6 @@
 import os
 import sys
+import stat
 import string
 import threading
 import shutil
@@ -284,11 +285,21 @@ class DiskScannerApp:
 
         failed = []
         deleted_iids = []
+
+        def force_remove_readonly(func, path, exc_info):
+            """Strip read-only flag and retry — fixes .git and VirtualBox leftovers."""
+            try:
+                os.chmod(path, stat.S_IWRITE)
+                func(path)
+            except Exception:
+                pass
+
         for path in paths:
             try:
                 if os.path.isdir(path):
-                    shutil.rmtree(path)
+                    shutil.rmtree(path, onerror=force_remove_readonly)
                 else:
+                    os.chmod(path, stat.S_IWRITE)
                     os.remove(path)
                 deleted_iids.append(path)
             except Exception as e:
