@@ -29,13 +29,19 @@ A lightweight, open-source Windows desktop app to visualize what's eating up you
 
 ## 🚀 Getting Started
 
-### Requirements
+### Option 1 — Download the EXE (No Python needed)
 
+1. Go to the [Releases page](https://github.com/joynalbokhsho/DiskLens/releases)
+2. Download **`DiskLens.exe`** from the latest release
+3. Double-click to run
+
+> **⚠️ Windows SmartScreen Warning:** Windows may show a warning saying *"DiskLens.exe isn't commonly downloaded"*. This is normal for new open-source apps without a paid code-signing certificate. Click **"More info" → "Run anyway"** to proceed. The app is fully open-source and safe to inspect.
+
+### Option 2 — Run from source (Python required)
+
+**Requirements:**
 - **Windows** 10 or 11
-- **Python 3.8+** — [Download here](https://www.python.org/downloads/)
-  - During install, check **"Add Python to PATH"**
-
-### Installation
+- **Python 3.8+** — [Download here](https://www.python.org/downloads/) *(check "Add Python to PATH" during install)*
 
 ```bash
 # 1. Clone the repository
@@ -46,7 +52,7 @@ cd DiskLens
 py disklens.py
 ```
 
-That's it. No `pip install`, no virtual environment, no setup needed.
+No `pip install`, no virtual environment, no setup needed.
 
 > **Tip:** On first launch, Windows will ask for Administrator permission via UAC. Click **Yes** for full drive access.
 
@@ -80,9 +86,10 @@ Deletion **only** happens when:
 ## 🏗️ Project Structure
 
 ```
-disklens/
-├── disklens.py    # Single-file app — all logic and UI in one place
-├── screenshot.png
+DiskLens/
+├── disklens.py      # Single-file app — all logic and UI in one place
+├── screenshot.png   # README screenshot
+├── .gitignore
 └── README.md
 ```
 
