@@ -109,7 +109,7 @@ Please open an issue first to discuss any major changes.
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute it.
+This project is licensed under the **[MIT License](LICENSE)** — feel free to use, modify, and distribute it.
 
 ---
 
