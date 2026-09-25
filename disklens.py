@@ -343,13 +343,11 @@ class DiskScannerApp:
             usage = shutil.disk_usage(target)
             total_gb = usage.total / (1024**3)
             free_gb = usage.free / (1024**3)
-            used_gb = usage.used / (1024**3)
             
             free_pct = (usage.free / usage.total) * 100 if usage.total > 0 else 0
-            used_pct = (usage.used / usage.total) * 100 if usage.total > 0 else 0
             
             self._lbl_capacity_val.config(
-                text=f"{total_gb:.1f} GB Total\n{used_gb:.1f} GB Used ({used_pct:.0f}%)\n{free_gb:.1f} GB Free ({free_pct:.0f}%)\n{dtype}",
+                text=f"{total_gb:.1f} GB Total\n{free_gb:.1f} GB Free ({free_pct:.0f}%)\n{dtype}",
                 font=("Segoe UI", 10, "bold"),
                 justify=tk.LEFT
             )
@@ -529,6 +527,7 @@ class DiskScannerApp:
         self.lbl_status.config(text="Idle", fg=TEXT_MUTED)
         self.btn_delete.config(state=tk.NORMAL)
         self.btn_scan.config(state=tk.NORMAL)
+        self._update_drive_capacity()
 
         for iid in deleted_iids:
             if self.tree.exists(iid):
@@ -628,6 +627,7 @@ class DiskScannerApp:
         self.progress.config(mode='determinate', value=100, maximum=100)
         self.lbl_status.config(text="Building tree…", fg=TEXT_MUTED)
         self.update_stats_only()
+        self._update_drive_capacity()
         self.populate_tree_node('', self.target_drive)
         self.lbl_status.config(text="✔  Scan complete", fg=COLOR_SUCCESS)
         self.is_scanning = False
